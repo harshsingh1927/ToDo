@@ -1,0 +1,207 @@
+:root{
+    --background:#0b0e14;                 /* deep dark */
+    --secondaryBackground:#151a2e;        /* card bg */
+    --text:#eaeaf0;
+    --muted:#9aa0b4;
+    --primary:#7c7cff;                    /* soft violet */
+    --accent:#2dd4bf;                     /* teal */
+    --danger:#ff6b6b;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    color:var(--text);
+    font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+body{
+    background:var(--background);
+}
+
+/* ================= CONTAINER ================= */
+.container{
+    max-width:500px;
+    margin:120px auto 0;
+    display:flex;
+    flex-direction:column;
+}
+
+/* ================= STATS ================= */
+.stats-container{
+    padding:18px;
+    border-radius:14px;
+    background:linear-gradient(
+        135deg,
+        rgba(124,124,255,0.15),
+        rgba(45,212,191,0.15)
+    );
+    border:1px solid rgba(255,255,255,0.08);
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.details p{
+    color:var(--muted);
+    margin-top:4px;
+}
+
+/* CIRCLE */
+#numbers{
+    width:96px;
+    height:96px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:26px;
+    font-weight:600;
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        var(--accent)
+    );
+}
+
+/* ================= PROGRESS BAR ================= */
+#progressBar{
+    width:100%;
+    height:10px;
+    background:#0f1324;
+    border-radius:8px;
+    margin-top:16px;
+    overflow:hidden;
+}
+
+#progress{
+    height:100%;
+    width:0%;
+    background:linear-gradient(
+        to right,
+        var(--primary),
+        var(--accent)
+    );
+    border-radius:8px;
+    transition:width 0.4s ease;
+}
+
+/* ================= FORM ================= */
+form{
+    margin-top:45px;
+    display:flex;
+    gap:12px;
+}
+
+input{
+    flex:1;
+    padding:14px 16px;
+    border-radius:12px;
+    border:1px solid rgba(255,255,255,0.08);
+    background:var(--secondaryBackground);
+    outline:none;
+}
+
+input::placeholder{
+    color:var(--muted);
+}
+
+button{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    border:none;
+    cursor:pointer;
+    font-size:30px;
+    font-weight:600;
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        var(--accent)
+    );
+}
+
+/* ================= TASK LIST ================= */
+#task-list{
+    margin-top:32px;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    list-style:none;
+}
+
+/* ================= TASK ITEM ================= */
+.taskitem{
+    background:var(--secondaryBackground);
+    padding:14px;
+    border-radius:14px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    transition:0.3s ease;
+    border:1px solid rgba(255,255,255,0.06);
+}
+
+.task{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.task p{
+    font-size:0.95rem;
+}
+
+/* ================= CHECKBOX ================= */
+input[type="checkbox"]{
+    width:18px;
+    height:18px;
+    accent-color:var(--accent);
+    cursor:pointer;
+}
+
+/* ================= COMPLETED ================= */
+.task.completed p{
+    text-decoration:line-through;
+    color:var(--accent);
+    opacity:0.75;
+}
+
+.taskitem:has(input:checked){
+    background:linear-gradient(
+        135deg,
+        rgba(45,212,191,0.12),
+        rgba(124,124,255,0.12)
+    );
+    box-shadow:0 0 16px rgba(45,212,191,0.35);
+    border-color:rgba(45,212,191,0.6);
+}
+
+/* ================= ICONS ================= */
+.icon img{
+    width:20px;
+    height:20px;
+    cursor:pointer;
+    margin-left:10px;
+    opacity:0.8;
+    transition:0.2s;
+}
+
+.icon img:hover{
+    opacity:1;
+    transform:scale(1.1);
+}
+
+/* ================= MOBILE ================= */
+@media (max-width:500px){
+    .container{
+        padding:0 14px;
+    }
+
+    #numbers{
+        width:80px;
+        height:80px;
+        font-size:22px;
+    }
+}
